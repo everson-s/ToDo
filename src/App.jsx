@@ -25,7 +25,6 @@ function App() {
 
   ])
  
-  return <div>Olá, react JS!</div>
   return <div className='app'>
     <h1>Lista de tarefas</h1>
     <div className="todo-list">
