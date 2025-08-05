@@ -10,6 +10,9 @@ import "./app.css";
 
 function App() {
 
+  
+  //useState
+
   const [todos, setTodos] = useState([
     
     {
@@ -32,8 +35,6 @@ function App() {
     }    
 
   ])
-
-  //useState
 
   const [search, setSearch] = useState("");
 
