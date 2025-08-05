@@ -33,7 +33,13 @@ function App() {
 
   ])
 
-    const [search, setSearch] = useState("");
+  //useState
+
+  const [search, setSearch] = useState("");
+
+  const[filter, setFilter] = useState("All");
+
+  const [sort, setSort] = useState("Asc");
 
   //Função que adiciona item à lista
   const addTodo = (text, category) => {
@@ -69,10 +75,20 @@ function App() {
   return <div className='app'>
     <h1>Lista de tarefas</h1>
     <Search search={search} setSearch={setSearch}/>
-    <Filter />
+    <Filter filter={filter} setFilter={serFilter} />
     <div className="todo-list">
-      {todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
+      {todos
+      .filter((todo) => 
+        filter === "All" 
+        ? true 
+        : filter === "Completed" 
+        ? todo.isCompleted 
+        : !todo.isCompleted
       )
+
+      .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())
+      )
+      
       .map((todo) => (
         <Todo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo}/>
       ))}
